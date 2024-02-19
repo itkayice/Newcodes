@@ -1,4 +1,6 @@
-        jdk 'myjava'
+pipeline{
+    tools{       
+         jdk 'myjava'
         maven 'mymaven'
     }
     
@@ -7,7 +9,7 @@
     stages {
         stage('Checkout') {
             agent {
-                label 'master'
+                label 'Master'
             }
             steps {
                 echo 'Cloning...'
@@ -17,7 +19,7 @@
         
         stage('Compile') {
             agent {
-                label 'slave_1'
+                label 'Slave_1'
             }
             steps {
                 echo 'Compiling...'
@@ -27,7 +29,7 @@
         
         stage('CodeReview') {
             agent {
-                label 'slave_1'
+                label 'Slave_1'
             }
             steps {
                 echo 'Code Review...'
@@ -37,7 +39,7 @@
         
         stage('UnitTest') {
             agent {
-                label 'slave_2'
+                label 'Slave_2'
             }
             steps {
                 echo 'Testing...'
@@ -52,7 +54,7 @@
         
         stage('Package') {
             agent {
-                label 'master'
+                label 'Master'
             }
             steps {
                 echo 'Packaging...'
