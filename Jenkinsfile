@@ -19,7 +19,7 @@ pipeline{
         
         stage('Compile') {
             agent {
-                label 'Slave_1'
+                label 'Slave1'
             }
             steps {
                 echo 'Compiling...'
@@ -29,7 +29,7 @@ pipeline{
         
         stage('CodeReview') {
             agent {
-                label 'Slave_1'
+                label 'Slave1'
             }
             steps {
                 echo 'Code Review...'
@@ -39,7 +39,7 @@ pipeline{
         
         stage('UnitTest') {
             agent {
-                label 'Slave_2'
+                label 'Slave2'
             }
             steps {
                 echo 'Testing...'
